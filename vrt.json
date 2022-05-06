@@ -1,0 +1,7 @@
+{
+  "apiUrl": "http://localhost:4200",
+  "apiKey": "B3RJHE97J8MWXKQ9Q3WRS85FQF1Q",
+  "project": "Default project",
+  "branchName": "master",
+  "enableSoftAssert": false
+}
