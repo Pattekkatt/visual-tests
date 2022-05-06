@@ -7,7 +7,7 @@ chmod a+x vrt-install.sh`
 `./vrt-install.sh`
 
 # Tests setup
-* Clone repo `git clone git@bitbucket.org:hostiqdev/hostiq.ua-autotests.git`
+* Clone repo `git clone https://github.com/Pattekkatt/visual-tests`
 * Go to `visual-tests` folder
 * Install dependencies `npm install`
 * Update configuration
