@@ -1,31 +1,34 @@
-import { test as base } from "@playwright/test";
-import { PlaywrightVisualRegressionTracker } from "@visual-regression-tracker/agent-playwright";
+import {test as base} from "@playwright/test";
+import {PlaywrightVisualRegressionTracker} from "@visual-regression-tracker/agent-playwright";
+
 const {baseUrl, pages, screenWidth, screenHeight} = require("./../testData.js");
 
 type TestFixtures = {
-  vrt: PlaywrightVisualRegressionTracker;
+    vrt: PlaywrightVisualRegressionTracker;
 };
 const test = base.extend<{}, TestFixtures>({
-  vrt: [
-    async ({ browserName }, use) => {
-      await use(new PlaywrightVisualRegressionTracker(browserName));
-    },
-    { scope: "worker" },
-  ],
+    vrt: [
+        async ({browserName}, use) => {
+            await use(new PlaywrightVisualRegressionTracker(browserName));
+        },
+        {scope: "worker"},
+    ],
 });
-test.use({ viewport: { width: screenWidth, height: screenHeight } });
-test.beforeAll(async ({ vrt }) => {
-  await vrt.start();
+test.use({viewport: {width: screenWidth, height: screenHeight}});
+test.beforeAll(async ({vrt}) => {
+    await vrt.start();
 });
-test.afterAll(async ({ vrt }) => {
-  await vrt.stop();
+test.afterAll(async ({vrt}) => {
+    await vrt.stop();
 });
 
 test.describe("Visual test", () => {
-  for(let i = 0; i <= pages.length - 1; i++) {
-  test("Visual test for " + pages[i], async ({ page, vrt }) => {
+    for (let i = 0; i <= pages.length - 1; i++) {
+        test("Visual test for " + pages[i], async ({page, vrt}) => {
 
-      await page.goto(baseUrl + pages[i]);
-      await vrt.trackPage(page, pages[i], { screenshotOptions: { fullPage: true }, }); });
-  }
+            await page.goto(baseUrl + pages[i]);
+            await page.evaluate(() => document.querySelector('.horiz-reviews').remove());
+            await vrt.trackPage(page, pages[i], {screenshotOptions: {fullPage: true},});
+        });
+    }
 });
