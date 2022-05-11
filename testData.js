@@ -79,8 +79,6 @@ module.exports = {
             "/ukr/info/what-is-hosting/",
             "/vps-hosting-mobile",
             "/ukr/vps-hosting-mobile",
-            "/info/what-is-hosting/",
-            "/ukr/info/what-is-hosting/",
             "/info/what-is-ssl/",
             "/ukr/info/what-is-ssl/",
             "/info/what-is-vps",

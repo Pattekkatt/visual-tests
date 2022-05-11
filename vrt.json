@@ -1,7 +1,7 @@
 {
-  "apiUrl": "http://localhost:4200",
-  "apiKey": "B3RJHE97J8MWXKQ9Q3WRS85FQF1Q",
-  "project": "Default project",
+  "apiUrl": "http://31.131.25.48:4200",
+  "apiKey": "962THGSENT4Q2SH3GN5ZBWQEA36Y",
+  "project": "fa835e50-0f51-47f7-ae3a-94719a311c26",
   "branchName": "master",
   "enableSoftAssert": false
 }
