@@ -33,7 +33,7 @@ test.describe("Visual test", () => {
                 }
             });
             await page.evaluate(() => document.querySelector('.horiz-reviews').remove());
-            await page.waitForLoadState({waitUntil: 'networkidle'});
+            await page.waitForLoadState('networkidle');
             await vrt.trackPage(page, pages[i], {screenshotOptions: {fullPage: true},});
         });
     }
