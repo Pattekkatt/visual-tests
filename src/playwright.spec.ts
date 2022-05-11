@@ -27,7 +27,7 @@ test.describe("Visual test", () => {
         test("Visual test for " + pages[i], async ({page, vrt}) => {
 
             await page.goto(baseUrl + pages[i]);
-            await page.scrollTo('footer-payment').scrollIntoView();
+            await page.locator('footer-payment').scrollIntoView();
             await page.evaluate(() => document.querySelector('.horiz-reviews').remove());
             await vrt.trackPage(page, pages[i], {screenshotOptions: {fullPage: true},});
         });
