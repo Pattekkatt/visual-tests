@@ -1,12 +1,10 @@
 {
-  "name": "agent-playwright",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "hq-visual-tests",
+  "version": "2.0.0",
   "scripts": {
-    "test": "VRT_CIBUILDID=$(date +%H:%M:%S_%d-%m-%Y) playwright test"
+    "test": "playwright test"
   },
-  "author": "",
+  "author": "alex.rykhlyuk",
   "license": "ISC",
   "dependencies": {
     "@visual-regression-tracker/agent-playwright": "^5.1.0"

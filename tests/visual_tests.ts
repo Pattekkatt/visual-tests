@@ -1,28 +1,16 @@
-import {test as base} from "@playwright/test";
-import {PlaywrightVisualRegressionTracker} from "@visual-regression-tracker/agent-playwright";
+import {test} from "../vrt-setup";
+
 const {pages} = require("./../testData.js");
-type TestFixtures = {
-    vrt: PlaywrightVisualRegressionTracker;
-};
-const test = base.extend<{}, TestFixtures>({
-    vrt: [
-        async ({browserName}, use) => {
-            await use(new PlaywrightVisualRegressionTracker('chromium'));
-        },
-        {scope: "worker"},
-    ],
-});
 test.beforeAll(async ({vrt}) => {
     await vrt.start();
-});
+})
 test.afterAll(async ({vrt}) => {
     await vrt.stop();
-});
+})
 
-test.describe("Visual test", () => {
+test.describe("Visual test", async () => {
     for (let i = 0; i <= pages.length - 1; i++) {
         test("Visual test for " + pages[i], async ({page, vrt}) => {
-
             await page.goto(pages[i]);
             await page.evaluate(() => document.querySelector('.horiz-reviews').remove());
             await page.waitForLoadState('networkidle');
